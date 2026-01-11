@@ -1,1 +1,32 @@
-<p>minisections works!</p>
+<ul class="nav nav-pills">
+
+    @for(item of menu; track $index) {
+
+    @if (item.children?.length) {
+    <li class="nav-item dropdown" (mouseenter)="openDropdown($index)" (mouseleave)="closeDropdown()">
+
+        <a class="nav-link dropdown-toggle" href="#" (click)="$event.preventDefault()"
+            [attr.aria-expanded]="IndexDropdownActivo === $index">
+            {{item.label}}</a>
+
+
+        <ul class="dropdown-menu" [class.show]="IndexDropdownActivo === $index">
+
+            @for(child of item.children; track $index){
+            <li><a class="dropdown-item" [routerLink]="child.link">{{child.label}}</a></li>
+            }
+        </ul>
+    </li>
+    }
+    @else {
+    <li class="nav-item"><a class="nav-link" [routerLink]="item.link">{{item.label}}</a></li>
+    }
+    }
+
+    <li class="nav-item-salida">
+        <a class="nav-link" href="#" aria-label="salir">
+            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+
+        </a>
+    </li>
+</ul>

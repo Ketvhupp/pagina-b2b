@@ -1,0 +1,43 @@
+.section-title {
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.wallets-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.wallet-card {
+    flex: 0 0 220px;
+    max-width: 220px;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--border-soft);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.wallet-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.wallet-amount {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.wallet-badge {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 0.15rem 0.45rem;
+    font-size: 0.7rem;
+    border-radius: 999px;
+    background: #ecfeff;
+    color: #0e7490;
+    border: 1px solid #a5f3fc;
+}

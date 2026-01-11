@@ -1,1 +1,21 @@
-<p>promociones works!</p>
+<h2 class="headingP">Promociones</h2>
+<div class="dividerP"> <span></span></div>
+<section class="carouselP">
+
+    <div class="flash-stripP">
+        @for (cardP of loopMenuu; track cardP) {
+        <div class="cardP">
+            <div class="card-bodyP">
+                <a [routerLink]="cardP.link">
+                    <img src="{{ cardP.src }}" class="card-img-top" alt="{{ cardP.alt }}"></a>
+                <div class="overlayP"></div>
+                <h5 class="card-titleP">{{ cardP.nombre }}</h5>
+            </div>
+        </div>
+        }
+    </div>
+
+    <button class="prevP" (click)="scroll(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="nextP" (click)="scroll(1)"><i class="fa-solid fa-chevron-right"></i></button>
+
+</section>

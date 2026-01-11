@@ -1,14 +1,47 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-carrusel',
-  imports: [],
+  imports: [RouterLink],
   standalone: true,
   templateUrl: './carrusel.html',
   styleUrl: './carrusel.css',
 })
 export class CarruselComponent {
-  images = [
+  //crear elemento <a> u el alt a las imagenes 
+  // iamagenes["img":ruta,"alt":alt]
+  //imagenes.img[ruta:ruta,alt]
+  slides: Slide[] = [
+    {
+      src: 'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzEyMzEzMENhcnJ1c2VsZXMgUmV0IEVuZXJvIDIwMjYuZ2lm',
+      alt: 'Banner enero 2026',
+      link: '/roma'
+    },
+    {
+      src: 'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzEyMzMzMENhcnJ1c2VsZXMgUmV0IEVuZXJvIDIwMjYuZ2lm',
+      alt: 'Banner 2',
+      link: '/roma'
+    },
+    {
+      src: 'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzIwNDEyNUNhcnJ1c2VsX09mZXJ0YXpvcyBTVUVST1guanBn',
+      alt: 'Banner 3',
+      link: '/roma'
+    },
+    {
+      src: 'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzIwMzcxMFNhdmFsIEVuZXJvIDIwMjYuZ2lm',
+      alt: 'Banner 4',
+      link: '/roma'
+    },
+    {
+      src: 'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzIwMzcxMFNhdmFsIEVuZXJvIDIwMjYuZ2lm',
+      alt: 'Banner 5',
+      link: '/roma'
+    }
+
+  ];
+
+  /*images = [
     'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzEyMzEzMENhcnJ1c2VsZXMgUmV0IEVuZXJvIDIwMjYuZ2lm',
     'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzEyMzMzMENhcnJ1c2VsZXMgUmV0IEVuZXJvIDIwMjYuZ2lm',
     'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2NzIwNDEyNUNhcnJ1c2VsX09mZXJ0YXpvcyBTVUVST1guanBn',
@@ -31,18 +64,19 @@ export class CarruselComponent {
     'https://b2b.global-pharma.cl/Vista/img/Slider/MTc2MTE2MjYzOENhcnJ1c2VsIFNvbGFyZXMgQXZlbmUuanBn',
     'https://b2b.global-pharma.cl/Vista/img/Slider/QmFubmVyIEdhdmlzY29uLmpwZw=='
   ];
+  */
 
   currentIndex = signal(0);
 
   next() {
     this.currentIndex.set(
-      (this.currentIndex() + 1) % this.images.length
+      (this.currentIndex() + 1) % this.slides.length
     );
   }
 
   prev() {
     this.currentIndex.set(
-      (this.currentIndex() - 1 + this.images.length) % this.images.length
+      (this.currentIndex() - 1 + this.slides.length) % this.slides.length
     );
   }
 
@@ -50,3 +84,9 @@ export class CarruselComponent {
     this.currentIndex.set(index);
   }
 }
+interface Slide {
+  src: string;
+  alt: string;
+  link: string;
+}
+

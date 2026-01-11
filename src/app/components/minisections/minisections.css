@@ -1,0 +1,108 @@
+.nav-pills {
+    display: flex;
+    flex: auto;
+    position: relative;
+    justify-content: space-between;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: #0c243c
+}
+
+ul.nav li a {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.dropdown-toggle::after {
+    vertical-align: 0.1em;
+}
+
+/*para poner la rayita*/
+.nav-pills .nav-item {
+    position: relative;
+    padding-left: 10px;
+}
+
+.nav-pills .nav-item::before {
+    content: "|";
+    font-size: 18px;
+    position: absolute;
+    color: #a1acd4;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.nav-pills .nav-item:first-child::before {
+    content: none;
+}
+
+.nav-pills .nav-item:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* animación de subrayado :D */
+.nav-item .nav-link {
+    display: inline-block;
+    position: relative;
+}
+
+.nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: transform 0.25s ease-out;
+    transform-origin: bottom center;
+}
+
+.nav-item .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
+
+.nav-item .nav-link:hover {
+    color: var(--accent);
+}
+
+/* delay */
+.dropdown-menu {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
+    display: block;
+    pointer-events: none;
+    background: #0c243c;
+    border: none;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-item {
+    transition: background-color 0.5s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent);
+}
+
+.nav-item-salida .nav-link {
+    font-size: 18px;
+}
+
+.nav-item-salida .nav-link:hover {
+    color: var(--accent);
+}

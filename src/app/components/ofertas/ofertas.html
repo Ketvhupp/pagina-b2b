@@ -1,56 +1,21 @@
-<section class="flash-strip">
-    <div>
-        <div class="flash-text-main">Ofertas flash activas</div>
-        <div class="flash-text-sub">
-            Aprovecha descuentos por tiempo limitado en laboratorios seleccionados. Renovamos las campañas
-            varias veces al día.
+<h2 class="heading">Ofertas</h2>
+<div class="divider"> <span></span></div>
+<section class="carousel">
+
+    <div class="flash-strip">
+        @for (card of loopMenu; track card) {
+        <div class="card">
+            <div class="card-body">
+                <a [routerLink]="card.link">
+                    <img src="{{ card.src }}" class="card-img-top" alt="{{ card.alt }}"></a>
+                <div class="overlay"></div>
+                <h5 class="card-title">{{ card.nombre }}</h5>
+            </div>
         </div>
+        }
     </div>
-    <div class="flash-pills">
-        <div class="flash-pill">Lab A · Hasta -..% · 00:25:10</div>
-        <div class="flash-pill">Lab B · Bonificación extra · 00:41:03</div>
-    </div>
+
+    <button class="prev" (click)="scroll(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="next" (click)="scroll(1)"><i class="fa-solid fa-chevron-right"></i></button>
+
 </section>
-
-<style>
-    /* OFERTAS FLASH */
-    .flash-strip {
-        background: var(--card-bg);
-        border-radius: 1.25rem;
-        padding: 0.9rem 1rem;
-        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-        margin-bottom: 1.5rem;
-        display: grid;
-        grid-template-columns: minmax(0, 1.8fr) minmax(0, 2fr);
-        gap: 0.8rem;
-    }
-
-    .flash-text-main {
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-    }
-
-    .flash-text-sub {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    .flash-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .flash-pill {
-        background: var(--accent-soft);
-        color: var(--accent-secondary);
-        border-radius: 999px;
-        padding: 0.35rem 0.85rem;
-        font-size: 0.8rem;
-        border: 1px solid #bae6fd;
-        white-space: nowrap;
-    }
-</style>

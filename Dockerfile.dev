@@ -1,17 +1,13 @@
-FROM node:25-alpine
+FROM node:25-bookworm-slim
 
 WORKDIR /app
 
-# dependencias
 COPY package*.json ./
-RUN npm ci
 
-# el código se montará por volumen, pero dejamos el copy para builds “sin volumen” también
+# npm ci estricto, pero tolera peer deps conflictivas
+RUN npm ci --legacy-peer-deps --no-audit --no-fund
+
 COPY . .
 
 EXPOSE 4200
-
-# Para Hot Reload dentro de Docker:
-# --host 0.0.0.0 para exponer fuera del contenedor
-# --poll 1000 por compatibilidad con fs events (Linux/VM/Docker)
 CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "4200", "--poll", "1000"]

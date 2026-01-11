@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.css',
 })
 export class NavbarComponent {
-
+  buscar_central() {
+    alert("buscar_central");
+  }
 }
