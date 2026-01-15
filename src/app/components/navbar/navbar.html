@@ -2,12 +2,42 @@
     <div class="logo">GLOBAL PHARMA <br> Farmacias Prueba</div>
     <div class="search-wrapper">
         <label for="buscar_central" hidden>Buscar</label>
+<<<<<<< HEAD
         <input class="search-input" id="buscar_central" placeholder="Buscar productos, códigos o convenios…"
             (click)="buscar_central()" />
+=======
+        <app-buscador></app-buscador>
+>>>>>>> 62fe170 (ruleta, corrección promociones y wallet)
     </div>
     <div class="header-actions">
-        <div class="icon-circle"></div>
-        <div class="icon-circle"></div>
-        <button class="cart-btn">Carrito (3)</button>
+        <a class="nav-link" [routerLink]="'/roma'">
+            <i class="fas fa-solid fa-chart-simple"></i>
+        </a>
+        <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+            <img src="Vista/img/bonificacion/pig_gif_barra.gif?v=3" class="chanchito_barra">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;"><a
+                class="nav-link" data-toggle="dropdown" href="#">
+                <span class="dropdown-header">Acumulado: </span>
+            </a><a href="/Cliente/MisBonificaciones" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>Acumulado</span>
+                <span class="float-right text-muted text-sm" id="chanchito_monto">$ 8.400</span>
+            </a>
+
+            <a href="/Cliente/MisBonificaionesDetalle" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>Detalle Bonificación</span>
+            </a>
+
+        </div>
+        <a data-nombre="Carrito" id="SubMenu4" [routerLink]="'/carrito'" data-toggle="dropdown" aria-haspopup="true"
+            role="menu" aria-expanded="false" class="nav-link cart-btn"><i class="fas fa-cart-plus fa-lg mr-2"></i>
+            Carrito<span class="badge badge-danger navbar-badge" style="font-size:12px; "
+                id="cantidad_carrito">0</span></a>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62fe170 (ruleta, corrección promociones y wallet)
 </header>

@@ -1,0 +1,58 @@
+<!-- search.component.html -->
+<div class="search-container">
+    <input type="text" class="form-control search-input" placeholder="Buscar tecnología..."
+        (input)="updateSearch($event)" [value]="searchTerm()" [(ngModel)]="searchTerm" (input)="onSearch()" />
+
+    <ul class="list-group list-group-horizontal row">
+        @for (producto of searchResults; track producto) {
+        <li class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column producto_catalogo">
+            <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0"></div>
+                <div class="card-body pt-0">
+                    <div class="row">
+                        <div class="col-7">
+                            <h2 class="lead" style="height:100px"><b> {{producto.nombre}}</b></h2>
+                            <p class="text-muted text-sm"><b>Descripción: {{producto.descripcion}}</b> </p>
+                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-dollar-sign"></i></span>
+                                    Precio: $ {{producto.precio}}</li>
+                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building "></i></span>
+                                    Laboratorio: {{producto.laboratorio}}</li>
+                                <li class="small"><span class="fa-li"><i
+                                            class="fas fa-solid fa-cart-shopping "></i></span> Stock: Sin stock</li>
+                            </ul>
+                        </div>
+                        <div class="col-5 text-center" id="img_1343" data-img_cant="0"><img src="{{producto.imagen}}"
+                                alt="{{producto.nombre}}" class=" img-fluid img_1343null" style="max-height: 300px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row"><a class="detalle_producto" data-pack="null" data-id_producto="1343"
+                            attr.data-laboratorio="{{producto.laboratorio}}" attr.data-codigo="{{producto.codigo}}"
+                            attr.data-img="{{producto.imagen}}" attr.data-nombre="{{producto.nombre}}"
+                            data-stock="Sin Stock" data-stock_texto="Sin stock" data-stock_class="btn-danger disabled"
+                            data-bonificado="0" attr.data-precio="$ {{producto.precio}}" href="/"><span
+                                class=" btn btn-sm btn-primary" role="button"><i class="fas fa-eye"></i> Ver
+                                Detalles</span></a>
+                        <div class="col"><span class="btn btn-primary btn-sm  btn-number btn-primary  disminuir"><i
+                                    class="fa-solid fa-minus"></i> </span> <span
+                                style="display: inline-block; width:40px;height:32px; text-align:center;"
+                                class="cantidad"> <input type="text" value="1"
+                                    class="form-control col-xs-1 cantidad_producto"
+                                    style="display: inline-block; width:40px;height:32px;" name="cantidad"
+                                    attr.data-codigo="{{producto.codigo}}" attr.data-id_producto="{{producto.codigo}}"
+                                    data-pack="null" data-evento="quitar" data-bonificado="0"
+                                    attr.data-precio="{{producto.precio}}"></span><span
+                                class="btn btn-primary btn-sm  btn-number btn-primary aumentar"><i
+                                    class="far fa fa-plus"></i></span></div>
+                        <div class="col agregar"><span class="col btn btn-danger disabled ">Sin Stock</span></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        } @empty {
+        <li>No se encontraron resultados para "{{ searchTerm() }}"</li>
+        }
+    </ul>
+</div>

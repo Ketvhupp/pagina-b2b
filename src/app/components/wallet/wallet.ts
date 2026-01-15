@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+interface wallet {
+  label: string;
+  balance?: number;
+  estado?: string;
+}
 
 interface wallet {
   label: string;
@@ -20,7 +26,21 @@ export class WalletComponent {
     { label: 'Bonificación Global', balance: 225764 },
     { label: 'Receta Solidaria', balance: 5000 },
     { label: 'ChileSalud', balance: 4598 },
-    { label: 'Yapp', balance: 500 }
+    { label: 'Yapp', balance: 500 },
+    { label: 'Puntos Acumulados', balance: 1500 }
   ];
+  @ViewChild('walletStrip', { static: false })
+  walletStrip!: ElementRef<HTMLElement>;
 
+  scrollWallet(direction: number) {
+    const el = this.walletStrip.nativeElement;
+    const cardWidth = 170;
+
+    el.scrollBy({
+      left: direction * cardWidth,
+      behavior: 'smooth',
+    });
+  }
 }
+
+

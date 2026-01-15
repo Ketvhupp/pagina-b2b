@@ -5,14 +5,16 @@
 
 .wallets-row {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.4rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
 }
 
 .wallet-card {
-    flex: 0 0 220px;
-    max-width: 220px;
+    flex: 0 0 162px;
+    max-width: 162px;
+    height: 100px;
     background: var(--card-bg);
     border-radius: 1rem;
     border: 1px solid var(--border-soft);
@@ -40,4 +42,46 @@
     background: #ecfeff;
     color: #0e7490;
     border: 1px solid #a5f3fc;
+}
+
+.wallets-row::-webkit-scrollbar {
+    display: none;
+}
+
+.wraap {
+    position: relative;
+}
+
+
+.ant,
+.dsp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background-color: rgba(153, 153, 153, 0.4);
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease;
+}
+
+.ant {
+    left: 2px;
+}
+
+.dsp {
+    right: 2px;
+}
+
+.ant:hover,
+.dsp:hover {
+    background-color: rgba(33, 33, 33, 0.4);
 }

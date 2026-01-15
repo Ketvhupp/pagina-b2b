@@ -1,0 +1,8 @@
+{
+    "/api": {
+        "target": "http://192.168.102.232/prueba_tienda.test/",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

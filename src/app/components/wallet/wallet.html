@@ -1,12 +1,18 @@
 <section>
 
     <h4 class="section-title">Tus convenios y wallets</h4>
-    <div class="wallets-row">
-        @for(wallet of wallets; track wallets) {
-        <div class="wallet-card">
-            <div class="wallet-name">{{ wallet.label }}</div>
-            <div class="wallet-amount">$ {{ wallet.balance }} disp.</div>
+
+    <div class="wraap">
+        <div class="wallets-row" #walletStrip>
+            @for(wallet of wallets; track wallets) {
+            <div class="wallet-card">
+                <div class="wallet-name">{{ wallet.label }}</div>
+                <div class="wallet-amount">$ {{ wallet.balance }} disp.</div>
+            </div>
+            }
         </div>
-        }
+
+        <button class="ant" (click)="scrollWallet(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="dsp" (click)="scrollWallet(1)"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 </section>

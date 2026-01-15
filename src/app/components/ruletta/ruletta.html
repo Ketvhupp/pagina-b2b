@@ -1,0 +1,41 @@
+<div class="ruleta-flotante" (click)="open=true">
+    <img src="ruletaaa.png">
+</div>
+
+@if (open) {
+<div class="ruleta-overlay" (click)="open = false">
+    <div class="ruleta-container" (click)="$event.stopPropagation()">
+
+
+        <div class="container-element">
+
+            <div class="pointer"></div>
+            <!--ruleta grande-->
+            <svg class="roulette" width="300" height="300" viewBox="0 0 300 300"
+                [style.transform]="'rotate(' + rotation + 'deg)'">
+
+                @for (n of items; track n; let i = $index) {
+
+                <path [attr.d]="getPath(i)" [attr.fill]="colors[i % colors.length]" />
+
+                <text [attr.x]="getX(i + 0.5, 90)" [attr.y]="getY(i + 0.5, 90)" [attr.transform]="
+    'rotate(' + getTextRotation(i + 0.5) + ' ' +
+    getX(i + 0.5, 90) + ' ' +
+    getY(i + 0.5, 90) + ')' " text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16">
+                    {{ n }}
+                </text>
+
+                }
+            </svg>
+
+
+
+        </div>
+
+        <button class="boton" (click)="girar()">GIRAR</button>
+        @if(result){
+        <p class="letra">Resultado: {{ result }}</p>
+        }
+    </div>
+</div>
+}
