@@ -22,11 +22,6 @@ interface producto {
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-<<<<<<< HEAD
-export class NavbarComponent {
-  buscar_central() {
-    alert("buscar_central");
-=======
 
 export class NavbarComponent {
   form: FormGroup;
@@ -48,6 +43,5 @@ export class NavbarComponent {
         }
       });
     }
->>>>>>> 62fe170 (ruleta, corrección promociones y wallet)
   }
 }

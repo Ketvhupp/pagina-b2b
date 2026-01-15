@@ -1,12 +1,4 @@
 import { Routes } from '@angular/router';
-<<<<<<< HEAD
-import { HomeComponent } from './pages/home/home'
-import { Roma } from './pages/roma/roma';
-
-export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'roma', component: Roma }
-=======
 import { authMatchGuard } from './auth-match.guard';
 import { guestMatchGuard } from './guest-match.guard';
 
@@ -25,6 +17,5 @@ export const routes: Routes = [
     },
 
     { path: '**', redirectTo: '' }
->>>>>>> 62fe170 (ruleta, corrección promociones y wallet)
 ];
 

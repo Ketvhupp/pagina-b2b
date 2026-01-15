@@ -2,12 +2,6 @@ import { Component, signal, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 import { FooterComponent } from './components/footer/footer';
-<<<<<<< HEAD
-
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
-=======
 import { Login } from './components/login/login';
 import { AuthService } from './service/login';
 
@@ -15,7 +9,6 @@ import { AuthService } from './service/login';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, FooterComponent, Login],
->>>>>>> 62fe170 (ruleta, corrección promociones y wallet)
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
